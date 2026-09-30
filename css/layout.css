@@ -1,0 +1,72 @@
+/* css/layout.css — 版面骨架 */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 14px;
+  background: var(--color-panel);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  z-index: 10;
+}
+
+.toolbar__group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.toolbar__label { font-size: 13px; color: var(--color-muted); }
+
+.workspace {
+  position: relative;
+  overflow: hidden;
+  background: #4a5568;
+}
+
+.viewport {
+  position: absolute;
+  inset: 0;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px;
+}
+
+.page-stack {
+  position: relative;
+  flex: 0 0 auto;
+  box-shadow: var(--shadow-md);
+  background: #fff;
+  line-height: 0;
+}
+
+.page-canvas, .overlay-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
+.page-canvas { position: relative; }
+
+.overlay-canvas {
+  z-index: 2;
+  cursor: crosshair;
+}
+
+.viewport.is-pan .overlay-canvas { cursor: grab; }
+.viewport.is-panning .overlay-canvas { cursor: grabbing; }
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 14px;
+  font-size: 12px;
+  color: var(--color-muted);
+  background: var(--color-panel);
+  border-top: 1px solid var(--color-border);
+}

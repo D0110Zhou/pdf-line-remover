@@ -1,0 +1,177 @@
+/* css/components.css — 按鈕、輸入框、Toast、儲存格編輯器 */
+.btn {
+  padding: 6px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-panel);
+  color: var(--color-text);
+  font-size: 13px;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.btn:hover { background: #edf2f7; }
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+
+.btn--primary { background: var(--color-accent); border-color: var(--color-accent); color: #fff; }
+.btn--primary:hover { background: var(--color-accent-hover); }
+
+.btn--accent {
+  background: #0078d7; border-color: #0078d7; color: #fff; font-weight: 600;
+}
+.btn--accent:hover { background: #006abc; }
+
+.btn--toggle.is-active {
+  background: var(--color-accent); border-color: var(--color-accent); color: #fff;
+}
+
+.input {
+  padding: 6px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  width: 150px;
+  outline: none;
+}
+.input:focus { border-color: var(--color-accent); }
+
+.page-info {
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-muted);
+  min-width: 150px;
+  text-align: center;
+}
+
+/* ── Toast ───────────────────────────── */
+.toast-root {
+  position: fixed;
+  top: 68px;
+  right: 18px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  min-width: 240px;
+  max-width: 360px;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  background: #2d3748;
+  color: #fff;
+  font-size: 13px;
+  box-shadow: var(--shadow-md);
+  animation: toast-in .18s ease-out;
+}
+.toast--success { background: #2f855a; }
+.toast--warn    { background: #b7791f; }
+.toast--error   { background: #c53030; }
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── 儲存格編輯器 ─────────────────────── */
+.cell-editor {
+  position: fixed;
+  top: 90px;
+  right: 24px;
+  width: 440px;
+  max-height: 74vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.25);
+  z-index: 500;
+  overflow: hidden;
+}
+
+.cell-editor__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #2d3748;
+  color: #fff;
+  font-weight: 600;
+  cursor: move;
+  user-select: none;
+}
+
+.cell-editor__close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+.cell-editor__info { padding: 10px 14px 4px; font-size: 13px; }
+
+.cell-editor__hint {
+  padding: 0 14px 10px;
+  font-size: 12px;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+.cell-editor__body { flex: 1 1 auto; overflow: auto; padding: 0 14px; }
+
+.cell-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.cell-table th {
+  position: sticky;
+  top: 0;
+  background: #edf2f7;
+  padding: 6px 8px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid var(--color-border);
+  z-index: 1;
+}
+.cell-table td {
+  padding: 3px 4px;
+  border-bottom: 1px solid #f0f4f8;
+}
+.cell-table tr.is-selected { background: #ebf8ff; }
+.cell-table td:first-child {
+  width: 110px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+.cell-table td:first-child .has-text { color: #dd6b20; }
+
+.cell-table input[type="text"] {
+  width: 100%;
+  padding: 4px 6px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 13px;
+  outline: none;
+  background: transparent;
+}
+.cell-table input[type="text"]:focus {
+  border-color: var(--color-accent);
+  background: #fff;
+}
+
+.cell-editor__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--color-border);
+  background: #f7fafc;
+}

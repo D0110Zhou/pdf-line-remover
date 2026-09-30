@@ -1,0 +1,36 @@
+/* css/base.css — 設計變數與全域重置 */
+:root {
+  --color-bg: #f7fafc;
+  --color-panel: #ffffff;
+  --color-border: #e2e8f0;
+  --color-text: #1a202c;
+  --color-muted: #718096;
+  --color-accent: #3182ce;
+  --color-accent-hover: #2b6cb0;
+  --color-danger: #e53e3e;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.12);
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Segoe UI", "Microsoft JhengHei", system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  color: var(--color-text);
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+#app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
+button { font-family: inherit; cursor: pointer; }
+input  { font-family: inherit; }

@@ -1,0 +1,11 @@
+*.pdf
+*.PDF
+*.docx
+*.xlsx
+*.pptx
+*.zip
+.env
+.env.*
+*.log
+Thumbs.db
+.DS_Store
